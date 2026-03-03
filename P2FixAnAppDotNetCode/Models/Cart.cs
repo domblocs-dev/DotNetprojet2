@@ -11,30 +11,40 @@ namespace P2FixAnAppDotNetCode.Models
         /// <summary>
         /// Read-only property for display only
         /// </summary>
-        public IEnumerable<CartLine> Lines => GetCartLineList();
+        public IEnumerable<CartLine> Lines => _cartLines;
 
         /// <summary>
         /// Return the actual cartline list
         /// </summary>
-        /// <returns></returns>
-        private List<CartLine> GetCartLineList()
-        {
-            return new List<CartLine>();
-        }
+        private readonly List<CartLine> _cartLines = new();
 
         /// <summary>
         /// Adds a product in the cart or increment its quantity in the cart if already added
         /// </summary>//
         public void AddItem(Product product, int quantity)
         {
-            // TODO implement the method
+            //4 TODO implement the method
+            if (product == null || quantity <= 0)
+            {
+                return;
+            }
+
+            // Si le produit existe déjà dans le panier, incrémenter la quantité
+            var existing = _cartLines.FirstOrDefault(l => l.Product?.Id == product.Id);
+            if (existing != null)
+            {
+                existing.Quantity += quantity;
+                return;
+            }
+
+            _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
         }
 
         /// <summary>
         /// Removes a product form the cart
         /// </summary>
         public void RemoveLine(Product product) =>
-            GetCartLineList().RemoveAll(l => l.Product.Id == product.Id);
+            _cartLines.RemoveAll(l => l.Product != null && l.Product.Id == product.Id);
 
         /// <summary>
         /// Get total value of a cart
@@ -76,7 +86,7 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public void Clear()
         {
-            List<CartLine> cartLines = GetCartLineList();
+            List<CartLine> cartLines = _cartLines;
             cartLines.Clear();
         }
     }
