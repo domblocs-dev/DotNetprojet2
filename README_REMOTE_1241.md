@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# DotNetprojet2
-=======
 # DotNetprojet2
 
 ## Afin d'exécuter l'application en local dans la branche dev:
@@ -8,4 +5,3 @@
 - Déplacez vous dans la branche dev
 - Sous Visual Studio 2022 ou 2026, sélectionner P2FixAnAppDotNetCode comme projet de démarrage
 - Lancer l'application sans débogage
->>>>>>> d387010484ea0caf3b7e090d7adc664d27d775df
