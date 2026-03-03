@@ -51,8 +51,14 @@ namespace P2FixAnAppDotNetCode.Models
         /// </summary>
         public double GetTotalValue()
         {
-            // TODO implement the method
-            return 0.0;
+            //5 TODO implement the method
+            double total = 0.0;
+            foreach (var line in _cartLines)
+            {
+                if (line?.Product == null) continue;
+                total += line.Product.Price * line.Quantity;
+            }
+            return total;
         }
 
         /// <summary>
