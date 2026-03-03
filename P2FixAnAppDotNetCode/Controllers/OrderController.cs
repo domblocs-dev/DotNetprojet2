@@ -45,5 +45,14 @@ namespace P2FixAnAppDotNetCode.Controllers
             _cart.Clear();
             return View();
         }
+
+        /*
+         public IActionResult Completed()
+        {
+            _cart.Clear();
+            // Redirige vers la page produit qui affichera le stock mis à jour
+            return RedirectToAction("Index", "Product");
+        } 
+         */
     }
 }
