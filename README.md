@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# DotNetprojet2
-=======
 # DotNetprojet2
 
 ## Afin d'exécuter l'application en local dans la branche dev:
