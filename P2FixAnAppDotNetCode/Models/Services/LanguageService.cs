@@ -30,7 +30,7 @@ namespace P2FixAnAppDotNetCode.Models.Services
                 culture = language.ToUpperInvariant() switch
                 {
                     "ENGLISH" or "EN-US" => "en-US",
-                    "FRENCH" or "FR-FR" => "fr-FR",
+                    "FRENCH" or "FR-FR" => "fr",
                     "SPANISH" or "ES-ES" => "es-ES",
                     _ => "en-US"
                 };

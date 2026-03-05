@@ -36,7 +36,6 @@ namespace P2FixAnAppDotNetCode.Models
                 existing.Quantity += quantity;
                 return;
             }
-
             _cartLines.Add(new CartLine { Product = product, Quantity = quantity });
         }
 
